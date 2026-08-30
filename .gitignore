@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+
+# Flutter / Dart
+app/.dart_tool/
+app/build/
+app/.flutter-plugins*
+app/.packages
+app/android/.gradle/
+app/android/local.properties
+app/android/app/.cxx/
+app/ios/Pods/
+app/ios/.symlinks/
+app/ios/Flutter/ephemeral/
+
+# 构建产物（APK / 独立版 exe / 打包中间文件）
+dist/
+build/
+app/android/.kotlin/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# 系统
+Thumbs.db
+.DS_Store
