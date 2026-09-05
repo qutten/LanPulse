@@ -19,13 +19,13 @@
 
 ## 截图
 
-| 服务端 | App 首页 |
-| --- | --- |
-| ![](docs/screenshots/server-console.jpg) | ![](docs/screenshots/app-home.jpg) |
+服务端启动：
 
-| 测速页 | 结果页 |
-| --- | --- |
-| ![](docs/screenshots/app-speed.jpg) | ![](docs/screenshots/app-result.jpg) |
+![服务端启动](docs/screenshots/server-console.jpg)
+
+| App 首页 | 测速页 | 结果页 |
+| --- | --- | --- |
+| ![App 首页](docs/screenshots/app-home.jpg) | ![测速页](docs/screenshots/app-speed.jpg) | ![结果页](docs/screenshots/app-result.jpg) |
 
 ## 快速开始
 

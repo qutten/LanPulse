@@ -19,13 +19,13 @@ A LAN speed test tool. The server runs on a PC, the app runs on a phone. It meas
 
 ## Screenshots
 
-| Server | App home |
-| --- | --- |
-| ![](docs/screenshots/server-console.jpg) | ![](docs/screenshots/app-home.jpg) |
+Server startup:
 
-| Speed test | Result |
-| --- | --- |
-| ![](docs/screenshots/app-speed.jpg) | ![](docs/screenshots/app-result.jpg) |
+![Server startup](docs/screenshots/server-console.jpg)
+
+| App home | Speed test | Result |
+| --- | --- | --- |
+| ![App home](docs/screenshots/app-home.jpg) | ![Speed test](docs/screenshots/app-speed.jpg) | ![Result](docs/screenshots/app-result.jpg) |
 
 ## Quick Start
 
