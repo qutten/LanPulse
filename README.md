@@ -16,7 +16,7 @@ Server startup:
 
 ## Download & Usage
 
-Download two files from the [Releases](https://github.com/qutten/Demo/releases/latest) page:
+Download two files from the [Releases](https://github.com/qutten/LanPulse/releases/latest) page:
 
 - `lan-speed-server.exe` — the server for your PC (Windows 10/11, no Python needed)
 - `lan-speed-test.apk` — the app for your phone (Android)

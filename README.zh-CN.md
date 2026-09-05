@@ -16,7 +16,7 @@
 
 ## 下载与使用
 
-从 [Releases](https://github.com/qutten/Demo/releases/latest) 下载两个文件：
+从 [Releases](https://github.com/qutten/LanPulse/releases/latest) 下载两个文件：
 
 - `lan-speed-server.exe` — 电脑端服务端（Windows 10/11，不需要装 Python）
 - `lan-speed-test.apk` — 手机端 App（Android）
