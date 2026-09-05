@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.lanspeedtest.lan_speed_test"
+    namespace = "com.lanpulse.app"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -16,7 +16,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.lanspeedtest.lan_speed_test"
+        applicationId = "com.lanpulse.app"
         // 需求要求 Android 8.0（API 26）及以上
         minSdk = 26
         targetSdk = flutter.targetSdkVersion

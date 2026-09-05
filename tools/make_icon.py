@@ -2,7 +2,7 @@
 """生成服务端 exe 图标（icon.ico）与 JPG 分享图（与手机 App 图标一致）。
 
 用法: python tools/make_icon.py
-产物: icon.ico（多尺寸，供 Exe 打包）; dist/内网测速-图标.jpg（白底分享图）
+产物: icon.ico（多尺寸，供 Exe 打包）; dist/lanpulse-icon.jpg（白底分享图）
 """
 import os
 
@@ -12,7 +12,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "app", "android", "app", "src", "main", "res",
                    "mipmap-xxxhdpi", "ic_launcher.png")
 ICO_OUT = os.path.join(ROOT, "icon.ico")
-JPG_OUT = os.path.join(ROOT, "dist", "内网测速-图标.jpg")
+JPG_OUT = os.path.join(ROOT, "dist", "lanpulse-icon.jpg")
 
 img = Image.open(SRC).convert("RGBA")
 

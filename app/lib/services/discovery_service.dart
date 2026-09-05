@@ -68,7 +68,7 @@ class DiscoveryService {
     if (sock == null) return;
     try {
       final data = utf8.encode(
-        jsonEncode({'type': 'lan-speedtest-probe', 'version': 1}),
+        jsonEncode({'type': 'lanpulse-probe', 'version': 1}),
       );
       sock.send(data, InternetAddress('255.255.255.255'), _discoveryPort);
     } on SocketException {
@@ -83,7 +83,7 @@ class DiscoveryService {
     try {
       final obj = jsonDecode(utf8.decode(dg.data, allowMalformed: true));
       if (obj is Map<String, dynamic> &&
-          obj['type'] == 'lan-speedtest-announce') {
+          obj['type'] == 'lanpulse-announce') {
         final info = ServerInfo.fromAnnounce(obj);
         if (info.version != 1) return; // 版本不兼容不收录
         _servers[info.key] = info; // 按 IP+端口 去重刷新

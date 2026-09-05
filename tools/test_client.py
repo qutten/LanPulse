@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""内网测速 · 协议测试客户端（Python 模拟手机端）
+"""LanPulse 脉冲测速 · 协议测试客户端（Python 模拟手机端）
 
 用于验证服务端（docs/协议设计.md 的客户端实现参考）：
 
@@ -56,7 +56,7 @@ class Control:
         self.sock = socket.create_connection((host, port), timeout=10)
         self.sock.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
         self.reader = LineReader(self.sock)
-        send_msg(self.sock, {"type": "hello", "app": "lan-speedtest",
+        send_msg(self.sock, {"type": "hello", "app": "lanpulse",
                              "version": 1, "name": name})
         msg = recv_msg(self.reader, 10)
         if msg is None:
@@ -216,7 +216,7 @@ def speed_test(ctrl, test, host, port, duration, concurrency, block_size):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="内网测速协议测试客户端")
+    parser = argparse.ArgumentParser(description="LanPulse 协议测试客户端")
     parser.add_argument("--host", default="127.0.0.1", help="服务端 IP")
     parser.add_argument("--port", type=int, default=8899, help="服务端 TCP 端口")
     parser.add_argument("--password", default=None, help="访问口令")

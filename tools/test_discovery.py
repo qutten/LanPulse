@@ -17,7 +17,7 @@ s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 s.bind(("0.0.0.0", PORT))
 s.settimeout(8)
 
-probe = json.dumps({"type": "lan-speedtest-probe", "version": 1}).encode("utf-8")
+probe = json.dumps({"type": "lanpulse-probe", "version": 1}).encode("utf-8")
 s.sendto(probe, ("255.255.255.255", PORT))
 print(f"已发送 probe 到 255.255.255.255:{PORT}，等待 announce（最多 8 秒）...")
 
@@ -27,7 +27,7 @@ try:
         data, addr = s.recvfrom(4096)
         try:
             msg = json.loads(data.decode("utf-8", "replace"))
-            if msg.get("type") == "lan-speedtest-announce":
+            if msg.get("type") == "lanpulse-announce":
                 print(f"发现服务端: {msg.get('name')} @ {msg.get('ip')}:{msg.get('port')} "
                       f"(协议 v{msg.get('version')}) 来自 {addr}")
                 found.append(msg)

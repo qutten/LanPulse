@@ -9,7 +9,7 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
-  String get appTitle => '内网测速';
+  String get appTitle => '脉冲测速';
 
   @override
   String get notFoundServer => '未发现服务端，请确认电脑端已运行 run.bat';

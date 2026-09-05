@@ -1,6 +1,6 @@
 {
   "@@locale": "en",
-  "appTitle": "LAN Speed Test",
+  "appTitle": "LanPulse",
   "notFoundServer": "No server found. Please make sure run.bat is running on your computer",
   "pullToRefresh": "Pull down to refresh",
   "discoveredAt": "Discovered at {time}",

@@ -12,7 +12,7 @@ class HistoryDao {
   Future<Database> get _database async {
     if (_db != null) return _db!;
     final dir = await getDatabasesPath();
-    final path = join(dir, 'lan_speed_test.db');
+    final path = join(dir, 'lan_pulse.db');
     _db = await openDatabase(
       path,
       version: 1,

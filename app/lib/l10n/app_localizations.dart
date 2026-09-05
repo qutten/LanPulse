@@ -101,7 +101,7 @@ abstract class AppLocalizations {
   /// No description provided for @appTitle.
   ///
   /// In zh, this message translates to:
-  /// **'内网测速'**
+  /// **'脉冲测速'**
   String get appTitle;
 
   /// No description provided for @notFoundServer.

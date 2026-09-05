@@ -1,16 +1,16 @@
 @echo off
-title 内网测速 APK 构建
+title LanPulse APK 构建
 setlocal
 
 rem ============================================================
-rem  内网测速 · 一键构建 APK
-rem  项目路径含中文（E:\Desktop\内网测速），Windows 下 Dart AOT
+rem  LanPulse 脉冲测速 · 一键构建 APK
+rem  项目路径含中文（如 E:\Desktop\中文目录），Windows 下 Dart AOT
 rem  编译器无法直接编译中文路径，因此本脚本先把源码同步到 ASCII
-rem  路径 E:\lan-speed-app 再构建，完成后自动把 APK 复制回项目。
+rem  路径 E:\lanpulse-build 再构建，完成后自动把 APK 复制回项目。
 rem  前置要求：Flutter SDK 已安装（E:\flutter，可修改下方配置）
 rem ============================================================
 
-set "STAGE=E:\lan-speed-app"
+set "STAGE=E:\lanpulse-build"
 set "FLUTTER=E:\flutter\bin\flutter.bat"
 set "FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn"
 set "PUB_HOSTED_URL=https://pub.flutter-io.cn"
@@ -36,13 +36,13 @@ echo [4/4] 复制 APK 到项目目录 ...
 if not exist "%~dp0app\build\app\outputs\flutter-apk" mkdir "%~dp0app\build\app\outputs\flutter-apk"
 copy /y "%STAGE%\build\app\outputs\flutter-apk\app-release.apk" "%~dp0app\build\app\outputs\flutter-apk\app-release.apk" >nul
 if not exist "%~dp0dist" mkdir "%~dp0dist"
-copy /y "%STAGE%\build\app\outputs\flutter-apk\app-release.apk" "%~dp0dist\lan-speed-test.apk" >nul
+copy /y "%STAGE%\build\app\outputs\flutter-apk\app-release.apk" "%~dp0dist\lanpulse.apk" >nul
 
 echo.
 echo ============================================
 echo  构建成功！
 echo  APK: %~dp0app\build\app\outputs\flutter-apk\app-release.apk
-echo  dist: %~dp0dist\lan-speed-test.apk
+echo  dist: %~dp0dist\lanpulse.apk
 echo ============================================
 pause
 exit /b 0

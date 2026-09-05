@@ -9,7 +9,7 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appTitle => 'LAN Speed Test';
+  String get appTitle => 'LanPulse';
 
   @override
   String get notFoundServer =>

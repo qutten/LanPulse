@@ -1,4 +1,4 @@
-# lan_speed_test
+# LanPulse
 
 A new Flutter project.
 

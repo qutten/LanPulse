@@ -34,7 +34,7 @@ def get_local_ips():
 
 def make_announce(name, ip, port):
     return json.dumps({
-        "type": "lan-speedtest-announce",
+        "type": "lanpulse-announce",
         "name": name,
         "ip": ip,
         "port": port,
@@ -62,7 +62,7 @@ def start_discovery(server_name, tcp_port, discovery_port, stop_event, log):
                 data, addr = sock.recvfrom(4096)
                 try:
                     msg = json.loads(data.decode("utf-8", "replace"))
-                    if msg.get("type") == "lan-speedtest-probe":
+                    if msg.get("type") == "lanpulse-probe":
                         sock.sendto(payload, addr)
                 except (ValueError, TypeError):
                     pass

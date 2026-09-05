@@ -5,12 +5,12 @@ import 'l10n/app_localizations.dart';
 import 'pages/home_page.dart';
 
 void main() {
-  runApp(const LanSpeedTestApp());
+  runApp(const LanPulseApp());
 }
 
-/// 内网测速 App 入口：Material 3，支持浅色/深色跟随系统
-class LanSpeedTestApp extends StatelessWidget {
-  const LanSpeedTestApp({super.key});
+/// LanPulse 脉冲测速 App 入口：Material 3，支持浅色/深色跟随系统
+class LanPulseApp extends StatelessWidget {
+  const LanPulseApp({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""内网测速 · 电脑端服务端入口（Windows 终端运行）
+"""LanPulse 脉冲测速 · 电脑端服务端入口（Windows 终端运行）
 
 用法:
     python server.py                          # 默认端口 8899，自动发现端口 8900
@@ -28,7 +28,7 @@ def try_add_firewall_rules(port, discovery_port):
     """尝试添加 Windows 防火墙入站规则（需要管理员权限，失败仅提示）。"""
     if sys.platform != "win32":
         return
-    rule_name = f"内网测速服务端-{port}"
+    rule_name = f"LanPulse-Server-{port}"
     commands = [
         ["netsh", "advfirewall", "firewall", "add", "rule",
          f"name={rule_name}", "dir=in", "action=allow",
@@ -48,7 +48,7 @@ def try_add_firewall_rules(port, discovery_port):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="内网测速服务端（电脑端）")
+    parser = argparse.ArgumentParser(description="LanPulse 服务端（电脑端）")
     parser.add_argument("--port", type=int, default=protocol.DEFAULT_PORT,
                         help=f"TCP 服务端口（默认 {protocol.DEFAULT_PORT}）")
     parser.add_argument("--discovery-port", type=int, default=None,
@@ -67,7 +67,7 @@ def main():
     discovery_port = args.discovery_port or (args.port + 1)
     stop_event = threading.Event()
 
-    log(f"内网测速服务端 v{protocol.VERSION}   名称: {name}")
+    log(f"LanPulse 服务端 v{protocol.VERSION}   名称: {name}")
     ips = discovery.get_local_ips()
     log("本机局域网 IP: " + (", ".join(ips) if ips else "未检测到"))
     log(f"TCP 服务端口: {args.port}   UDP 自动发现端口: {discovery_port}")

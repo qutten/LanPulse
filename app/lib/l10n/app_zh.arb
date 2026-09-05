@@ -1,6 +1,6 @@
 {
   "@@locale": "zh",
-  "appTitle": "内网测速",
+  "appTitle": "脉冲测速",
   "notFoundServer": "未发现服务端，请确认电脑端已运行 run.bat",
   "pullToRefresh": "下拉刷新重新探测",
   "discoveredAt": "发现时间 {time}",

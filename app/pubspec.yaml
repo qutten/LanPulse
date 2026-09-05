@@ -1,5 +1,5 @@
-name: lan_speed_test
-description: 内网测速 - 局域网测速客户端
+name: lan_pulse
+description: 脉冲测速 - 局域网测速客户端
 publish_to: 'none'
 version: 1.0.0+1
 

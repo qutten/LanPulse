@@ -45,7 +45,7 @@ class ProtocolClient {
     String host,
     int port, {
     String password = '',
-    String name = '内网测速',
+    String name = '脉冲测速',
   }) async {
     try {
       _socket = await Socket.connect(host, port,
@@ -59,7 +59,7 @@ class ProtocolClient {
 
     await _send({
       'type': 'hello',
-      'app': 'lan-speedtest',
+      'app': 'lanpulse',
       'version': 1,
       'name': name,
     });
