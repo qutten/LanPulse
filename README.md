@@ -1,49 +1,49 @@
-# LanPulse 脉冲测速
+# LanPulse
 
-[English](./README.en.md)
+[中文](./README.zh-CN.md)
 
-局域网测速工具。电脑上运行服务端，手机上运行 App，测量手机与电脑之间在局域网内的下载速度、上传速度、延迟、抖动和丢包率。测速数据只走局域网，不经过互联网。
+A LAN speed test tool. The server runs on a PC, the app runs on a phone. It measures download speed, upload speed, latency, jitter and packet loss between the two devices over the LAN. All test traffic stays on the local network; no internet connection is used.
 
-## 截图
+## Screenshots
 
-服务端启动：
+Server startup:
 
-![服务端启动](docs/screenshots/server-console.jpg)
+![Server startup](docs/screenshots/server-console.jpg)
 
-| App 首页 | 测速页 | 结果页 |
+| App home | Speed test | Result |
 | --- | --- | --- |
-| ![App 首页](docs/screenshots/app-home.jpg) | ![测速页](docs/screenshots/app-speed.jpg) | ![结果页](docs/screenshots/app-result.jpg) |
+| ![App home](docs/screenshots/app-home.jpg) | ![Speed test](docs/screenshots/app-speed.jpg) | ![Result](docs/screenshots/app-result.jpg) |
 
-## 下载与使用
+## Download & Usage
 
-从 [Releases](https://github.com/qutten/Demo/releases/latest) 下载两个文件：
+Download two files from the [Releases](https://github.com/qutten/Demo/releases/latest) page:
 
-- `lan-speed-server.exe` — 电脑端服务端（Windows 10/11，不需要装 Python）
-- `lan-speed-test.apk` — 手机端 App（Android）
+- `lan-speed-server.exe` — the server for your PC (Windows 10/11, no Python needed)
+- `lan-speed-test.apk` — the app for your phone (Android)
 
-然后：
+Then:
 
-1. 电脑上双击 `lan-speed-server.exe`，弹出的终端会显示本机 IP 和端口。
-2. 手机上安装 `lan-speed-test.apk`。
-3. 手机和电脑连同一个 WiFi。
-4. 打开 App，等服务端自动出现；发现不了就点右下角 +，手动输入电脑的 IP 和端口。
-5. 选好测速时长和并发数，点「开始测速」。
+1. Double-click `lan-speed-server.exe` on the PC. The terminal shows the local IP and port.
+2. Install `lan-speed-test.apk` on the phone.
+3. Connect the phone and the PC to the same WiFi.
+4. Open the app and wait for the server to appear. If it does not, tap the + at the bottom right and enter the PC's IP and port manually.
+5. Pick a duration and concurrency, then tap Start.
 
-## 测速指标
+## Metrics
 
-| 指标 | 单位 | 说明 |
+| Metric | Unit | Meaning |
 | --- | --- | --- |
-| 下载速度 | Mbps | 手机从服务端接收数据的平均吞吐 |
-| 上传速度 | Mbps | 手机向服务端发送数据的平均吞吐 |
-| 延迟 | ms | 小包往返时间，显示最小 / 平均 / 最大 |
-| 抖动 | ms | 相邻延迟差的平均值，越小越稳定 |
-| 丢包率 | % | 未收到应答的数据包占比 |
+| Download speed | Mbps | average throughput from PC to phone |
+| Upload speed | Mbps | average throughput from phone to PC |
+| Latency | ms | round-trip time of small packets, shown as min / avg / max |
+| Jitter | ms | average difference between consecutive pings; lower is more stable |
+| Packet loss | % | share of packets that got no response |
 
-## 服务端
+## Server
 
-### 运行
+### Running
 
-exe 在 Releases 里下载，双击运行，终端会显示：
+Get the exe from Releases and double-click it. The terminal shows:
 
 ```
 [17:20:07] LanPulse 服务端 v1   名称: DESKTOP-ABC
@@ -52,92 +52,92 @@ exe 在 Releases 里下载，双击运行，终端会显示：
 [17:20:08] 服务已启动，按 Ctrl+C 退出
 ```
 
-想用源码跑也可以，需要 Python 3.10+：
+You can also run it from source. Requires Python 3.10+:
 
 ```
 cd server
 python server.py
 ```
 
-exe 和源码版参数一样，以下参数对两者都适用。
+The exe and the source version take the same arguments.
 
-### 参数
+### Arguments
 
-| 参数 | 说明 | 默认值 |
+| Argument | Description | Default |
 | --- | --- | --- |
-| `--port` | TCP 服务端口 | 8899 |
-| `--discovery-port` | UDP 自动发现端口 | TCP 端口 + 1 |
-| `--name` | 服务端名称，显示在手机端 | 本机主机名 |
-| `--password` | 访问口令 | 不开启 |
-| `--max-clients` | 最大并发客户端数 | 8 |
-| `--block-size` | 数据块大小（字节） | 65536 |
-| `--no-announce` | 关闭自动发现广播 | 广播开启 |
+| `--port` | TCP service port | 8899 |
+| `--discovery-port` | UDP discovery port | TCP port + 1 |
+| `--name` | Server name, shown in the app | local hostname |
+| `--password` | Access password | disabled |
+| `--max-clients` | Maximum concurrent clients | 8 |
+| `--block-size` | Data block size (bytes) | 65536 |
+| `--no-announce` | Disable auto-discovery announcements | announcements on |
 
-示例：
+Example:
 
 ```
 python server.py --port 9000 --password 1234 --name 我的电脑
 ```
 
-### 防火墙
+### Firewall
 
-启动时程序会尝试自动添加 Windows 防火墙入站规则，需要管理员权限。添加失败且手机连不上时，手动放行：
+On startup the program tries to add a Windows firewall inbound rule, which requires administrator privileges. If that fails and the phone cannot connect, allow the ports manually:
 
-- 入站规则：TCP 8899（或自定义端口）
-- 入站规则：UDP 8900（自动发现，可选）
+- Inbound rule: TCP 8899 (or your custom port)
+- Inbound rule: UDP 8900 (auto-discovery, optional)
 
-## 手机 App
+## Phone App
 
-### 连接
+### Connecting
 
-- 自动发现：手机和电脑在同一 WiFi 下，首页会自动列出服务端，点进去即可。
-- 手动连接：点右下角 +，输入电脑的 IP 和端口，自动发现不可用时用。
+- Auto-discovery: with the phone and the PC on the same WiFi, the server shows up on the home page automatically. Tap it to start.
+- Manual: tap + at the bottom right and enter the PC's IP and port. Use this when discovery does not work.
 
-### 测速
+### Speed test
 
-测速页可选测速时长（5/10/30/60 秒）、并发连接数（1/2/4/8），可以关掉上传测速或 Ping 测试再测。测速中实时显示速度曲线，结束后显示全部指标，结果自动存到历史记录（首页右上角的时钟图标里看）。
+Choose a duration (5/10/30/60 s) and concurrency (1/2/4/8). You can turn off the upload test or the ping test. The speed chart updates in real time; when the test finishes, all metrics are shown and the result is saved to history (see the clock icon at the top right of the home page).
 
-## 开发与测试
+## Development & Testing
 
-不带手机也能验证服务端，用自带测试客户端模拟手机端。
+You can test the server without a phone using the test client, which simulates the phone.
 
-终端 1 启动服务端：
+Terminal 1, start the server:
 
 ```
 python server.py
 ```
 
-终端 2 跑测试客户端：
+Terminal 2, run the test client:
 
 ```
 python tools/test_client.py --host 127.0.0.1 --duration 5 --concurrency 4
 ```
 
-`test_client.py` 参数：`--host`、`--port`、`--password`、`--duration`、`--concurrency`、`--ping-count`、`--tests`（all/ping/download/upload）。
+`test_client.py` arguments: `--host`, `--port`, `--password`, `--duration`, `--concurrency`, `--ping-count`, `--tests` (all/ping/download/upload).
 
-单独验证自动发现：
+To verify auto-discovery on its own:
 
 ```
 python tools/test_discovery.py
 ```
 
-## 目录结构
+## Project Structure
 
 ```
-├── docs/                 # 需求文档、协议设计
-├── server/               # 服务端源码（Python）
-│   ├── server.py         # 入口：启动、参数解析
-│   ├── core.py           # TCP 控制/数据连接处理
-│   ├── discovery.py      # UDP 自动发现广播
-│   └── protocol.py       # 协议常量
-├── app/                  # 手机端 Flutter 工程（Android）
-├── tools/                # 测试客户端等
-├── run.bat               # 一键启动源码版服务端（Windows）
-├── build_apk.bat         # 本地构建 APK 用
-└── build_server_exe.bat  # 本地打包 exe 用
+├── docs/                 # requirements and protocol documents
+├── server/               # server source (Python)
+│   ├── server.py         # entry point: startup, argument parsing
+│   ├── core.py           # TCP control/data connection handling
+│   ├── discovery.py      # UDP auto-discovery broadcasting
+│   └── protocol.py       # protocol constants
+├── app/                  # phone app Flutter project (Android)
+├── tools/                # test client, etc.
+├── run.bat               # one-click server start from source (Windows)
+├── build_apk.bat         # for building the APK locally
+└── build_server_exe.bat  # for packaging the exe locally
 ```
 
-## 文档
+## Documents
 
-- [需求文档](docs/需求文档.md)
-- [协议设计](docs/协议设计.md)
+- [Requirements](docs/需求文档.md) (Chinese)
+- [Protocol design](docs/协议设计.md) (Chinese)
