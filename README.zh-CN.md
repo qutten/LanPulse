@@ -124,7 +124,7 @@ python tools/test_discovery.py
 ## 目录结构
 
 ```
-├── docs/                 # 需求文档、协议设计
+├── docs/                 # 截图
 ├── server/               # 服务端源码（Python）
 │   ├── server.py         # 入口：启动、参数解析
 │   ├── core.py           # TCP 控制/数据连接处理
@@ -136,8 +136,3 @@ python tools/test_discovery.py
 ├── build_apk.bat         # 本地构建 APK 用
 └── build_server_exe.bat  # 本地打包 exe 用
 ```
-
-## 文档
-
-- [需求文档](docs/需求文档.md)
-- [协议设计](docs/协议设计.md)

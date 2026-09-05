@@ -124,7 +124,7 @@ python tools/test_discovery.py
 ## Project Structure
 
 ```
-├── docs/                 # requirements and protocol documents
+├── docs/                 # screenshots
 ├── server/               # server source (Python)
 │   ├── server.py         # entry point: startup, argument parsing
 │   ├── core.py           # TCP control/data connection handling
@@ -136,8 +136,3 @@ python tools/test_discovery.py
 ├── build_apk.bat         # for building the APK locally
 └── build_server_exe.bat  # for packaging the exe locally
 ```
-
-## Documents
-
-- [Requirements](docs/需求文档.md) (Chinese)
-- [Protocol design](docs/协议设计.md) (Chinese)

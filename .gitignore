@@ -27,3 +27,7 @@ app/android/.kotlin/
 # 系统
 Thumbs.db
 .DS_Store
+
+# 内部文档（只留本地，不上传 GitHub）
+docs/需求文档.md
+docs/协议设计.md
